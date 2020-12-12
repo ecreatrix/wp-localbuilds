@@ -1,0 +1,77 @@
+{
+	"name": "wa-local-builds",
+	"description": "Changes required for local builds only",
+	"version": "2.1.0",
+	"private": true,
+	"scripts": {
+		"build": "webpack --progress --config ./build/webpack.config.js",
+		"start": "webpack --watch --config ./build/webpack.config.js",
+		"lint": "npm run -s lint:scripts && npm run -s lint:styles",
+		"lint:scripts": "eslint dist/assets/scripts/**/*.js --config ./build/.eslintrc.js",
+		"lint:styles": "stylelint \"dist/assets/styles/**/*.{css,sass,scss,sss,less}\" --config ./build/.stylelintrc.js",
+		"test": "npm run -s lint"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/MIT"
+		}
+	],
+	"browserslist": [
+		"last 2 versions",
+		"android 4",
+		"opera 12"
+	],
+	"devDependencies": {
+		"@availity/yup": "^3.0.8",
+		"@babel/core": "^7.12.9",
+		"@babel/plugin-transform-runtime": "^7.12.10",
+		"@babel/preset-env": "^7.12.7",
+		"@babel/preset-react": "^7.12.7",
+		"@emotion/babel-preset-css-prop": "^11.0.0",
+		"@emotion/react": "^11.1.2",
+		"autoprefixer": "^10.1.0",
+		"babel-loader": "^8.2.2",
+		"babel-plugin-lodash": "^3.3.4",
+		"classnames": "^2.2.6",
+		"clean-webpack-plugin": "^3.0.0",
+		"copy-webpack-plugin": "^6.4.0",
+		"css-loader": "^5.0.1",
+		"cssnano": "^4.1.10",
+		"cssnano-webpack-plugin": "^1.0.3",
+		"eslint": "^7.15.0",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-webpack-plugin": "^2.4.1",
+		"extract-loader": "^5.1.0",
+		"extract-text-webpack-plugin": "~3.0.2",
+		"file-loader": "^6.2.0",
+		"formik": "^2.2.5",
+		"friendly-errors-webpack-plugin": "^1.7.0",
+		"mini-css-extract-plugin": "^1.3.2",
+		"moment": "^2.29.1",
+		"node-sass": "^5.0.0",
+		"postcss": "^8.2.1",
+		"postcss-loader": "^4.1.0",
+		"postcss-safe-parser": "^5.0.2",
+		"prop-types": "^15.7.2",
+		"react": "^17.0.1",
+		"resolve-url-loader": "^3.1.2",
+		"sass": "^1.30.0",
+		"sass-loader": "^10.1.0",
+		"style-loader": "^2.0.0",
+		"stylelint": "^13.8.0",
+		"stylelint-config-standard": "^20.0.0",
+		"stylelint-webpack-plugin": "^0.10.5",
+		"uglifyjs-webpack-plugin": "^2.2.0",
+		"webpack": "^5.10.0",
+		"webpack-cli": "^4.2.0",
+		"yargs": "^16.2.0",
+		"yup": "^0.32.6"
+	},
+	"dependencies": {
+		"bootstrap": "^4.5.3",
+		"jquery": "^3.5.1",
+		"popper.js": "^1.16.1"
+	}
+}

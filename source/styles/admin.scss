@@ -1,0 +1,8 @@
+@import "../shared/index";
+@import "../shared/fonts";
+
+button[class*="editor-block-list-item-wa"] {
+	svg path {
+		fill: $primary;
+	}
+}

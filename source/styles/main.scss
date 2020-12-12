@@ -1,0 +1,17 @@
+@import "../shared/index";
+@import "../shared/fonts";
+@import "./main/containers";
+
+button.btn:not(.btn-link):not([data-toggle="collapse"]):not([type="submit"]) {
+	position: relative;
+
+	&::after {
+		bottom: - map-get($spacers, 4);
+		color: $black;
+		content: "Button link not set";
+		font-size: $small-font-size;
+		font-style: italic;
+		text-decoration: underline;
+		width: 100%;
+	}
+}

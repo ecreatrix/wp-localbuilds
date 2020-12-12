@@ -1,0 +1,15 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/variables";
+@import "variables/index";
+
+[class^="xdebug"], [class*=" xdebug"] {
+	margin-bottom: 1rem;
+	overflow: scroll;
+}
+
+.xdebug-var-dump, .xdebug-error {
+	th {
+		color: black;
+	}
+}
