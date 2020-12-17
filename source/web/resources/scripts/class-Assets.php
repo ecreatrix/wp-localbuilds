@@ -33,7 +33,7 @@ if ( ! class_exists( Assets::class ) ) {
             $requirements = ['jquery', 'wp-editor', 'wp-i18n', 'wp-element', 'wp-edit-post', 'wp-compose', 'underscore', 'wp-components', 'wp-api-request', 'wp-api-fetch'];
 
             $settings = [
-                'ajax_url'    => admin_url( 'admin-ajax.php' ),
+                'rest_url'    => get_rest_url() . Plugin\CODENAME . '/v1',
                 'settings'    => Plugin\Settings\Options::get_settings(),
                 'currentPage' => admin_url( 'admin.php?page=' . $_GET['page'] )
             ];

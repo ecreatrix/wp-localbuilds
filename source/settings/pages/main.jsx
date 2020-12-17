@@ -47,38 +47,37 @@ export default class Blocks extends Component {
     }
 
     // Called by Formik submit, update state and db from settings
-    onSubmit( settings, { setSubmitting } ) { 
+    onSubmit = async ( settings, { setSubmitting } ) => { 
         const {
             messageType,
         } = this.state
-        apiFetch( {
-            path: '/walcbld/v1/settings',
-            method: 'POST', 
-            data: { 
-                currentPage: this.props.data.currentPage,
-                values: settings,
-                reset,
-            },
-        } )
-        .then( ( result ) => {
-            if ( result.type == 'error' ) { 
-                console.log( 'error' )
-                console.log( result )
-            }
 
-            let info = result.returned ? JSON.parse( result.returned ) : false
+        const parameters = {
+            currentPage: this.props.data.currentPage,
+            values: settings,
+            reset,
+        };
+
+        // Get results from trying to save new settings
+        try {
+            const fetchResponse = await fetch( `${ window.walcbld_settings.rest_url }/settings`, settings);
+            const result = await fetchResponse.json();
+
+            let returnedSettings = result.returned ? JSON.parse( result.returned ) : false
 
             this.setState( {
                 message: result.message || null,
                 messageType: result.type || null,
 
-                // Get value from php or AJAX supplied versions 
-                ...this.getAdmin( info || settings ),
+                // Get value from php or REST supplied versions 
+                ...this.getAdmin( returnedSettings ),
             } )
 
             setSubmitting ? setSubmitting( false ) : null
             reset = false
-        } )
+        } catch (e) {
+            return e;
+        }
     }
 
     makeForm( panel ) {
